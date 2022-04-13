@@ -17,6 +17,7 @@ clone_copy_rules (){
     chown ossec:ossec -R /var/ossec/etc/rules/
     chmod 660 /var/ossec/etc/rules/0*.xml
     rm -Rf $tmp_dir
+    systemctl restart wazuh-manager.service
 }
 
 
