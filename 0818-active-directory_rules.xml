@@ -1,0 +1,29 @@
+<group name="windows,active-directory,">
+    <rule id="110100" level="12">
+        <if_sid>60141</if_sid>
+        <field name="win.eventdata.TargetUserName">^Domain Admins$|^Cloneable Domain Controllers$|^DnsUpdateProxy$|^Domain Controllers$|^Group Policy Creator Owners$|^Key Admins$|^Read-only Domain Controllers$</field>
+        <description>User $(win.eventdata.MemberName) was added to the global group $(win.eventdata.TargetUserName) by $(win.eventdata.SubjectUserName)</description>
+        <options>no_full_log</options>
+        <mitre>
+            <id>T1053</id>
+        </mitre>
+    </rule>
+    <rule id="110101" level="12">
+        <if_sid>60144</if_sid>
+        <field name="win.eventdata.TargetUserName">^DHCP Administrators$|^Cert Publishers$|^DnsAdmins$|^RAS and IAS Servers$|^Allowed RODC Password Replication Group$</field>
+        <description>User $(win.eventdata.MemberName) was added to the local group $(win.eventdata.TargetUserName) by $(win.eventdata.SubjectUserName)</description>
+        <options>no_full_log</options>
+        <mitre>
+            <id>T1053</id>
+        </mitre>
+    </rule>
+    <rule id="110102" level="12">
+        <if_sid>60151</if_sid>
+        <field name="win.eventdata.TargetUserName">^Enterprise Admins$|^Enterprise Key Admins$|^Enterprise Read-only Domain Controllers$|^Schema Admins$</field>
+        <description>User $(win.eventdata.MemberName) was added to the universal group $(win.eventdata.TargetUserName) by $(win.eventdata.SubjectUserName)</description>
+        <options>no_full_log</options>
+        <mitre>
+            <id>T1053</id>
+        </mitre>
+    </rule>
+</group>
