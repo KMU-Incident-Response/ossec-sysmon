@@ -16,6 +16,11 @@ clone_copy_rules (){
     cp 0*.xml /var/ossec/etc/rules/
     chown ossec:ossec -R /var/ossec/etc/rules/
     chmod 660 /var/ossec/etc/rules/0*.xml
+    mkdir -p /var/ossec/etc/shared/windows
+    cp windows-agent.conf /var/ossec/etc/shared/windows/agent.conf
+    chmod 770 /var/ossec/etc/shared/windows
+    chown -R ossec:ossec /var/ossec/etc/shared/windows
+    chmod 660 /var/ossec/etc/shared/windows/agent.conf
     rm -Rf $tmp_dir
     systemctl restart wazuh-manager.service
 }
