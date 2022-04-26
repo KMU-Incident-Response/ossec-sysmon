@@ -31,11 +31,16 @@
         <if_sid>110001</if_sid>
         <field name="win.system.eventID">^106$</field>
         <description>Task Scheduler: A new task was created</description>
+        <options>no_full_log</options>
+        <mitre>
+            <id>T1053</id>
+        </mitre>
     </rule>
 
     <rule id="110005" level="2">
         <if_sid>110001</if_sid>
         <field name="win.system.eventID">^141$</field>
         <description>Task Scheduler: A task was removed</description>
+        <options>no_full_log</options>
     </rule>
 </group>
