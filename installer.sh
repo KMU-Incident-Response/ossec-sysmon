@@ -6,6 +6,8 @@ tmp_dir="/tmp/wazuh_rules"
 
 
 clone_copy_rules (){
+    apt-get update
+    apt-get install git -y
     mkdir -p $tmp_dir
     git clone $repo_url $tmp_dir
     cd "$tmp_dir"
